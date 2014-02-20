@@ -102,11 +102,29 @@ We will make frequent use of this observation in our upcoming, real-world exampl
 
 ## Tracking Changes in an RDBMS
 
-Next we implement a projection from 4&dash;dimensions into one. The first three dimensions are the primary keys on
+Next we implement a projection from four dimensions into one. The first three dimensions are the primary keys on
 three database tables, the fourth dimension is a continuous variable, time.
 
 Once the projection is defined, we will use the [distributed bitmap](http://docs.gigaspaces.com/sbp/distributed-bitmap.html)
 algorithm to store it efficiently on a grid of known size.
+
+### Problem description
+
+A discount brokerage executes trades on behalf of its customers on a large public exchange. Customer trade requests
+arrive at the trading system as in memory objects. They exist in memory for a random period of time (10ms - 5min)
+before being removed. During this interval, price information arrives every 18ms, other trade requests arrive every
+5ms and related meta-data arrives every 15 milliseconds.
+
+A trade is executed (matched with another request) approximately 18% of the time within 5 minutes. The rest of the
+requests are purged from the system (since some other brokerage was able to fulfill the trade more quickly).
+
+Every time that there is a match between a trade request and some other relevant criterion (a price tick, a matching
+trade request resulting in trade fulfillment, or matching trade metadata), the trade object itself is updated and
+the *update* is written back to the database.
+
+Management and the quants want to \"see\" what happens to individual trades while they are in the system. If a
+positive correlation could be identified between some alterable characteristic of the system and successful
+trade fulfilment, no one would ever need to work again.
 
 (under dev)
 
