@@ -93,7 +93,7 @@ Voilà!
 IntWidth [is simply a constant set to 10](https://github.com/jasonnerothin/projectit/blob/48cafa83f304808f29b6748c97c3a7b647a131e8/src/main/scala/com/jasonnerothin/project/package.scala#L25)
 in this example. Also: It hasn\'t been written in a way that would work for negative numbers.
 
-> **Big Idea** <br/>
+> **Technique: Co&dash;domain Reduction** <br/>
 > Restricting the projection co-domain (size of all possible inputs) reduces the size of the
 > memory required to store the domain. This reduction is geometric and has the same degree
 > as the number of input dimensions, before further optimization.
