@@ -12,8 +12,8 @@ that do not appear to be formally logical in nature can be solved by trading pre
 for an acceptably priced system in the end.
 
 > **Big Idea** <br/>
-> The purpose of this post is to describe an algorithm for solving large problems in a memory-efficient manner
-> by storing boolean indices in economically-feasible In Memory Data Grids.
+> This post describes an algorithm for solving large problems in an economically-feasible manner
+> by storing near-optimal boolean indices in an In Memory Data Grid.
 
 This will be accomplished in three sections:
 
@@ -29,7 +29,7 @@ the [distributed bitmap](http://docs.gigaspaces.com/sbp/distributed-bitmap.html)
 ## Mapping 3&dash;D coordinates
 
 ### Try 1: mathematical projection
-We start with a sound implementation of a mapping from a sequence of Points in 3-Dimensions to a sequence of Points on
+We start with an implementation of a mapping from a sequence of Points in 3-Dimensions to a sequence of Points on
 the x-axis. Key code is shown here:
 
 ![example projection function trait](images/apply.png)
@@ -92,7 +92,8 @@ Voilà!
 
 > **Big Idea** <br/>
 > Restricting the projection co-domain (size of all possible inputs) reduces the size of the
-> memory required to store the domain (geometrically).
+> memory required to store the domain. This reduction is geometric and has the same degree
+> as the number of input dimensions, before further optimization.
 
 We will make frequent use of this observation in our upcoming, real-world example.
 
