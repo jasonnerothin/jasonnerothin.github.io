@@ -120,7 +120,7 @@ requests are purged from the system (since some other brokerage was able to fulf
 
 Every time that there is a match between a trade request and some other relevant criterion (a price tick, a matching
 trade request resulting in trade fulfillment, or matching trade metadata), the trade object itself is updated and
-the *update* is written back to the database.
+the *update* is written back to the database. Only the **last** state of the object remains.
 
 Management and the quants want to \"see\" what happens to individual trades while they are in the system. If a
 positive correlation could be identified between some alterable characteristic of the system and successful
