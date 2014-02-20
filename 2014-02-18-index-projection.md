@@ -32,26 +32,26 @@ the [distributed bitmap](http://docs.gigaspaces.com/sbp/distributed-bitmap.html)
 We start with an implementation of a mapping from a sequence of Points in 3-Dimensions to a sequence of Points on
 the x-axis. Key code is shown here:
 
-![example projection function trait](images/apply.png)
-[source code](https://github.com/jasonnerothin/projectit/blob/2234fd3fd0764573e6662144a5b908815e6badd0/src/main/scala/com/jasonnerothin/project/Projection.scala)
+![example projection function trait](images/img0.png)
+[source code](https://github.com/jasonnerothin/projectit/blob/2234fd3fd0764573e6662144a5b908815e6badd0/src/main/scala/com/jasonnerothin/project/Projection.scala#L30)
 
 What we have produced is a projection of all Points in 3-D to Points on the x-axis.
 
 Let\'s start with the triangle given by the coordinates **{(1,2,3), (1,3,4), (3,4,5)}** as input.
 
-![current design problems](images/main-problem.png)
+![current design problems](images/img1.png)
 [source code](https://github.com/jasonnerothin/projectit/blob/5c705848cfe5bf1006c84404785958673b518ae9/src/main/scala/com/jasonnerothin/project/Main.scala#L29)
 
 The triangle is in fact projected onto the x-axis, as desired. But there is a problem. Two, actually. The first is
 that our projection implementation is **not**
 [one-to-one](http://www.regentsprep.org/Regents/math/algtrig/ATP5/OntoFunctions.htm).
 
-![not one to one](images/output0.png)
+![not one to one](images/img2.png)
 [source code](https://github.com/jasonnerothin/projectit/blob/5c705848cfe5bf1006c84404785958673b518ae9/src/main/scala/com/jasonnerothin/project/Main.scala#L29)
 
-> **Big Idea** <br/>
-> (1,0,0) is mapped to by (1, 2, 3) *and* (1, 3, 4). Therefore, we don\'t know how to pick the Point in our 1&dash;D domain that
-> corresponds to a unique Point in our co-domain 3&dash;D. Therefore, the projection is not *invertible*.
+> **Explanation** <br/>
+> (1,0,0) is **mapped to** by (1, 2, 3) *and* (1, 3, 4). Therefore, we don\'t know how to pick the Point in our 1&dash;D domain that
+> corresponds to a unique Point in our 3&dash;D co-domain. Therefore, the projection is not *invertible*.
 
 This means we cannot get our data back out of a grid once written there. So, let\'s update our projection so that
 it is both one-to-one and [onto](http://www.regentsprep.org/Regents/math/algtrig/ATP5/OntoFunctions.htm).
@@ -60,14 +60,14 @@ it is both one-to-one and [onto](http://www.regentsprep.org/Regents/math/algtrig
 
 In this next section of code, we choose to retain all of our information in an encoded bit string (actually, it\'s
 Scala\'s performant [BigInt implementation](http://www.scala-lang.org/api/2.10.3/index.html#scala.math.BigInt)). So
-in order to get our y and z components back out, we simply keep them around in the encoded bit string.
+in order to get our y&dash; and z&dash;components back out, we simply keep them around in the encoded bit string.
 
-![invertible projection](images/try2point.png)
+![invertible projection](images/img3.png)
 [source code](https://github.com/jasonnerothin/projectit/blob/853b77a1e63e19a24dd11508541ad8a6a700b711/src/main/scala/com/jasonnerothin/project/Projection.scala#L79)
 
 The output is as we\'d expect.
 
-![getting our data back out](images/output1.png)
+![getting our data back out](images/img4.png)
 [source code](https://github.com/jasonnerothin/projectit/blob/853b77a1e63e19a24dd11508541ad8a6a700b711/src/test/scala/com/jasonnerothin/project/Main.scala#L29)
 
 But we\'re not saving *any* space!
@@ -80,15 +80,17 @@ by mixing in a little analysis.
 Currently, we\'ve built a mechanism capable of telling us which of the points are occupied on the 3-D cartesian
 coordinate system. The amount of space required for this is approximately 96-bits per occupant. Therefore, we can
 completely characterize any set of Cartesian coordinates in approximately 1/10 kb times the size of the set, *as long as
-all members of that have no x, y, or z component larger than Int.MaxValue*.
+all members of that have no x&dash;, y&dash;, or z&dash;component larger than Int.MaxValue*.
 
-But *what if* we simply kept doing our homework with values much smaller than Int.MaxValue? Like, say, less than 2^10?
-Well, then we'd be down to the size of the set times 30 bits!
+But *what if* we simply choose to do our homework with values much smaller than Int.MaxValue? Like, say, less than 2^10?
+Well, then our total data requirement would be only the size of the set times 30 bits!
 
 Voilà!
 
-![saving some bits](images/savings.png)
+![saving some bits](images/img5.png)
 [source code](https://github.com/jasonnerothin/projectit/blob/48cafa83f304808f29b6748c97c3a7b647a131e8/src/main/scala/com/jasonnerothin/project/Projection.scala#L95)
+
+(IntWidth [is simply a constant set to 10](https://github.com/jasonnerothin/projectit/blob/48cafa83f304808f29b6748c97c3a7b647a131e8/src/main/scala/com/jasonnerothin/project/package.scala#L25) in this example.)
 
 > **Big Idea** <br/>
 > Restricting the projection co-domain (size of all possible inputs) reduces the size of the
@@ -99,4 +101,8 @@ We will make frequent use of this observation in our upcoming, real-world exampl
 
 ## Tracking Changes in an RDBMS
 
+(under dev)
+
 ## Using the API
+
+(under dev)
