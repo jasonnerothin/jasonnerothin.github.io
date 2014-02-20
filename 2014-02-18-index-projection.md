@@ -33,7 +33,7 @@ We start with an implementation of a mapping from a sequence of Points in 3-Dime
 the x-axis. Key code is shown here:
 
 ![example projection function trait](images/img0.png)
-[source code](https://github.com/jasonnerothin/projectit/blob/2234fd3fd0764573e6662144a5b908815e6badd0/src/main/scala/com/jasonnerothin/project/Projection.scala#L30)
+[source code](https://github.com/jasonnerothin/projectit/blob/2234fd3fd0764573e6662144a5b908815e6badd0/src/main/scala/com/jasonnerothin/project/Projection.scala#L63)
 
 What we have produced is a projection of all Points in 3-D to Points on the x-axis.
 
