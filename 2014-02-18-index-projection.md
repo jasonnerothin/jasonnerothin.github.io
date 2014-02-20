@@ -90,7 +90,8 @@ Voilà!
 ![saving some bits](images/img5.png)
 [source code](https://github.com/jasonnerothin/projectit/blob/48cafa83f304808f29b6748c97c3a7b647a131e8/src/main/scala/com/jasonnerothin/project/Projection.scala#L95)
 
-(IntWidth [is simply a constant set to 10](https://github.com/jasonnerothin/projectit/blob/48cafa83f304808f29b6748c97c3a7b647a131e8/src/main/scala/com/jasonnerothin/project/package.scala#L25) in this example.)
+IntWidth [is simply a constant set to 10](https://github.com/jasonnerothin/projectit/blob/48cafa83f304808f29b6748c97c3a7b647a131e8/src/main/scala/com/jasonnerothin/project/package.scala#L25)
+in this example. Also: It hasn\'t been written in a way that would work for negative numbers.
 
 > **Big Idea** <br/>
 > Restricting the projection co-domain (size of all possible inputs) reduces the size of the
