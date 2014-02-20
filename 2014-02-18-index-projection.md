@@ -2,6 +2,7 @@
 title: Index Projection for Large Datasets
 layout: post
 ---
+<link rel='stylesheet' href='../css/markdown7.css'/>
 ## Overview
 
 There is a large category of computational problems that can be solved by storing a map of truth values.
@@ -10,23 +11,24 @@ combinations of [first-order logical](http://en.wikipedia.org/wiki/First-order_l
 that do not appear to be formally logical in nature can be solved by trading precision in continuous variables
 for an acceptably priced system in the end.
 
-> The purpose of this post is to describe an algorithm for solving certain problems by storing large boolean
-> indices in economically-feasible in memory data grids.
+> **Big Idea** <br/>
+> The purpose of this post is to describe an algorithm for solving large problems in a memory-efficient manner
+> by storing boolean indices in economically-feasible In Memory Data Grids.
 
-This will be accomplished in three examples:
+This will be accomplished in three sections:
 
-1. Middle-school geometry
-2. Tracking changes in an RDBMS
-3. An API &amp; recipe
+1. Mapping 3&dash;D coordinates
+2. Tracking Changes in an RDBMS
+3. Using the API
 
 We will finish with an analysis showing that storage can be substantially cheaper in the average case.
 
 Our solution is a [Scala](http://scala-lang.org) mash-up of <a href="http://en.wikipedia.org/wiki/Projection_(mathematics)">mathematical projection</a> with
 the [distributed bitmap](http://docs.gigaspaces.com/sbp/distributed-bitmap.html) algorithm.
 
-## Part 1: Storing 3-D coordinates
+## Mapping 3&dash;D coordinates
 
-### Try 1: Simple math projection
+### Try 1: mathematical projection
 We start with a sound implementation of a mapping from a sequence of Points in 3-Dimensions to a sequence of Points on
 the x-axis. Key code is shown here:
 
@@ -89,6 +91,10 @@ Voilà!
 ![saving some bits](images/savings.png)
 [source code](https://github.com/jasonnerothin/projectit/blob/48cafa83f304808f29b6748c97c3a7b647a131e8/src/main/scala/com/jasonnerothin/project/Projection.scala#L95)
 
-This technique of restricting the projection co-domain (size of all possible inputs) will be repeated over and over.
+> **Big Idea** <br/>
+> Restricting the projection co-domain (size of all possible inputs) reduces the size of the
+> memory required to store the domain (geometrically).
 
-## Part 2: Tracking changes in a RDBMS
+## Tracking Changes in an RDBMS
+
+## Using the API
