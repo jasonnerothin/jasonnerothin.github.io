@@ -102,6 +102,12 @@ We will make frequent use of this observation in our upcoming, real-world exampl
 
 ## Tracking Changes in an RDBMS
 
+Next we implement a projection from 4&dash;dimensions into one. The first three dimensions are the primary keys on
+three database tables, the fourth dimension is a continuous variable, time.
+
+Once the projection is defined, we will use the [distributed bitmap](http://docs.gigaspaces.com/sbp/distributed-bitmap.html)
+algorithm to store it efficiently on a grid of known size.
+
 (under dev)
 
 ## Using the API
