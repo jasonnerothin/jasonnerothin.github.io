@@ -1,17 +1,17 @@
 ---
-title: Application Orchestration Across Multiple Cloud Foundry Providers - Part 1
+title: Application Orchestration for Cloud Foundry : Part 1
 layout: post
 ---
 <link rel='stylesheet' href='../css/markdown7.css'/>
 ## Application Orchestration Across Multiple Cloud Foundry Providers - Part 1 
 
+> **Big Idea** <br/>
+> This multi-part series describes how to orchestrate an application across more than one Cloud Foundry PaaS provider.   
+
 [Cloud Foundry](http://www.cloudfoundry.org) is a PaaS stack that provides easy-to-use management tools across a number 
 of popular application frameworks like Node.js, PHP, Ruby on Rails and others. A number of Cloud Foundry providers now 
 offer public cloud solutions. In this series, we will focus on [Pivotal Web Services](http://run.pivotal.io) and 
 [Anynines](http://www.anynines.com).
-
-> **Big Idea** <br/>
-> This multi-part series describes how to orchestrate an application across more than one Cloud Foundry PaaS.   
 
 We'll break the work down into simpler sections:
 
