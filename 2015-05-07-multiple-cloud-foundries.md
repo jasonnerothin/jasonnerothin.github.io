@@ -15,12 +15,12 @@ offer public cloud solutions. In this series, we will focus on [Pivotal Web Serv
 We'll break the work down into smaller sections:
 
 1. [Deploying an application on two clouds](#l1)
-1. Describing with a TOSCA blueprint
-1. Creating a workflow to scale up &amp; down
-1. Writing a Cloudify Manager plugin
-1. Collecting logs and metrics
+1. [Describing with a TOSCA blueprint]
+1. [Scaling with a local workflow]
+1. [Managing with a Cloudify plugin]
+1. [Collecting logs and metrics]
 
-## Deploying an application across two clouds<a name="l1"></a>
+## <a name="l1"></a>Deploying an application across two clouds
 
 ### The application
 
@@ -54,4 +54,6 @@ As you can see, the app is deployed across multiple providers:
 
 ### Load-balancing
 
-We will load-balance using HAProxy in step 4 of this series.  
+We will load-balance using HAProxy in step 4 of this series.
+  
+[Next >](2015-05-07-tosca-for-cloud-foundries.html) 
