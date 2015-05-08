@@ -5,15 +5,14 @@ layout: post
 <link rel='stylesheet' href='../css/markdown7.css'/>
 ## Application Orchestration for Cloud Foundry : Part 1 
 
-> **Big Idea** <br/>
-> This multi-part series describes how to orchestrate an application across more than one Cloud Foundry PaaS provider.   
-
 [Cloud Foundry](http://www.cloudfoundry.org) is a PaaS stack that provides easy-to-use management tools across a number 
 of popular application frameworks like Node.js, PHP, Ruby on Rails and others. A number of Cloud Foundry providers now 
 offer public cloud solutions. In this series, we will focus on [Pivotal Web Services](http://run.pivotal.io) and 
 [Anynines](http://www.anynines.com).
 
-We'll break the work down into simpler sections:
+> This multi-part series describes how to orchestrate an application across more than one Cloud Foundry PaaS provider.   
+
+We'll break the work down into smaller sections:
 
 1. <a href="l1>Deploying an application on two clouds</a>
 1. Describing with a TOSCA blueprint
@@ -21,11 +20,11 @@ We'll break the work down into simpler sections:
 1. Writing a Cloudify Manager plugin
 1. Collecting logs and metrics
 
-## Deploying a RoR application on two clouds<a name="l1"></a>
+## [Deploying an application across two clouds](#l1)
 
 ### The application
 
-We start by modifying a RoR sample app [that is set up for Cloud Foundry](https://github.com/cloudfoundry-samples/rails_sample_app/blob/master/README.markdown). For simplicity, we [use railtie](http://stackoverflow.com/questions/19078044/disable-activerecord-for-rails-4) for ActiveRecord. Then we provide a [rake task](https://github.com/GigaSpaces-POCs/cfy-pivotal/blob/f7c7f093088b4ab9e9c7b4e40d8163bd4af167db/cf-apps/simple-rails-app/lib/tasks/colorful.rake) that takes a css color and styles our web pages. (More on this later.) The deployment-ready app is stored [here as part of the blog1 tag](https://github.com/GigaSpaces-POCs/cfy-pivotal/tree/blog1/cf-apps/simple-rails-app).
+We start by modifying a Ruby on Rails application [that is set up for Cloud Foundry](https://github.com/cloudfoundry-samples/rails_sample_app/blob/master/README.markdown). For simplicity, we [use railtie](http://stackoverflow.com/questions/19078044/disable-activerecord-for-rails-4) for ActiveRecord. Then we provide a [rake task](https://github.com/GigaSpaces-POCs/cfy-pivotal/blob/f7c7f093088b4ab9e9c7b4e40d8163bd4af167db/cf-apps/simple-rails-app/lib/tasks/colorful.rake) that takes a css color and styles our web pages. (More on this later.) The deployment-ready app is stored [here as part of the blog1 tag](https://github.com/GigaSpaces-POCs/cfy-pivotal/tree/blog1/cf-apps/simple-rails-app).
 
 ### Deployment
 
