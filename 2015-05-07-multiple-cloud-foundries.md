@@ -15,8 +15,8 @@ offer public cloud solutions. In this series, we will focus on [Pivotal Web Serv
 We'll break the work down into smaller sections:
 
 1. [Deploying an application on two clouds](#l1)
-1. [Describing with a TOSCA blueprint]
-1. [Scaling with a local workflow]
+1. [Describing with a TOSCA blueprint](2015-05-07-tosca-for-cloud-foundries.html)
+1. [Scaling with a local workflow](2015-05-07-workflow-for-cloud-foundries.html)
 1. [Managing with a Cloudify plugin]
 1. [Collecting logs and metrics]
 
