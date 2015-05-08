@@ -14,13 +14,13 @@ offer public cloud solutions. In this series, we will focus on [Pivotal Web Serv
 
 We'll break the work down into smaller sections:
 
-1. <a href="l1>Deploying an application on two clouds</a>
+1. [Deploying an application on two clouds](#l1)
 1. Describing with a TOSCA blueprint
 1. Creating a workflow to scale up &amp; down
 1. Writing a Cloudify Manager plugin
 1. Collecting logs and metrics
 
-## [Deploying an application across two clouds](#l1)
+## Deploying an application across two clouds<a name="l1"></a>
 
 ### The application
 
