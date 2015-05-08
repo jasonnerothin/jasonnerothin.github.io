@@ -31,7 +31,7 @@ Given the level of useful abstraction, whole new algorithms become easy to write
 1. Shift 25% of system capacity to the European datacenter when the sun rises in Prague.
 1. and so on&hellip;
  
- ## A note on Policies
+## A note on Policies
  
 Custom workflows were designed with orchestration policies in mind. Since Cloudify 3.0, [an API has existed](http://getcloudify.org/guide/3.2/guide-authoring-policies.html) to allow defined events to be detected and reacted by invoking custom workflows.   
 
