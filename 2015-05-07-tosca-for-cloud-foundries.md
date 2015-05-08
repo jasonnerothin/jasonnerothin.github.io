@@ -26,16 +26,16 @@ The syntax is very flexible, and not bound to a particular cloud technology or t
 Cloud Foundry organizes application resources around two hierarchical concepts: [orgs](http://docs.cloudfoundry.org/concepts/roles.html#orgs) and [spaces](http://docs.cloudfoundry.org/concepts/roles.html#spaces). For simplification, orgs can be thought of as user accounts. Spaces are then user-defined categories (strictly belonging to an org) with which application resources can be managed. 
 
 Since both providers have implemented the org concept as strictly commensurate with user account, there is no need to model org and space separately. Here is the TOSCA representation of a space:
- 
-Note that we do derive it from the provider type. (Since no space can exist without a Cloud Foundry provider!) 
- 
+  
 ![org and space](images/types1.png) 
+
+Note that we do derive it from the provider type. (Since no space can exist without a Cloud Foundry provider!) 
  
 We round out our types with a description of an app and a deployment (which is a **relationship** between an app and a space):
  
 ![app and deployment](images/types2.png)
 
-Notice that at this point, we have only described any of these components in the abstract. 
+Notice that we have still only described components in the abstract: None of them relate to any physical things yet. 
 
 To realize them in the context of a specific provider (Pivotal, let's say), we need to bind them to actual configuration data. We do so in the `node_templates` section:
 
