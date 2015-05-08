@@ -3,7 +3,7 @@ title: Application Orchestration for Cloud Foundry : Part 1
 layout: post
 ---
 <link rel='stylesheet' href='../css/markdown7.css'/>
-## Application Orchestration Across Multiple Cloud Foundry Providers - Part 1 
+## Application Orchestration for Cloud Foundry : Part 1 
 
 > **Big Idea** <br/>
 > This multi-part series describes how to orchestrate an application across more than one Cloud Foundry PaaS provider.   
