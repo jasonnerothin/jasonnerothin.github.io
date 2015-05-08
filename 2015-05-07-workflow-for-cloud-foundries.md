@@ -15,7 +15,7 @@ To this point, we have only interacted with the running systems using the Cloud 
 1. Orchestrating with a Cloudify plugin
 1. Collecting logs and metrics
 
-## <a name="l1"></a>Scaling with a local workflow.
+## <a name="l1"></a>Scaling with a local workflow
 
 Cloudify provides an API for [authoring custom workflows](http://getcloudify.org/guide/3.2/guide-authoring-workflows.html). 
   
