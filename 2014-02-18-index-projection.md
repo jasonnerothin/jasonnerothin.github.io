@@ -110,9 +110,14 @@ algorithm to store it efficiently on a grid of known size.
 
 ### Problem description
 
-Employee work at the same company for a period of time. The HR information is stored in an In Memory Data Grid in
+Employees work at the same company for a period of time. The HR information is stored in an In Memory Data Grid in
 three Object types: Employee, JobDescription, and Salary. The company wants to be able to see the employment history
-of any individual and its changes over time in a unified view.
+of any individual and its changes over time in a unified view. Each object type is modelled as a SpaceObject backed
+by an Oracle database.
+
+#### Technical notes
+Changes to the model are reflected in the Data Grid thanks to an [Oracle Delta Server](http://docs.gigaspaces.com/sbp/oracle-delta-server.html).
+
 
 (under dev)
 
