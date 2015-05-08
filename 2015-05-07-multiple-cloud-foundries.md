@@ -3,7 +3,7 @@ title: Application Orchestration Across Multiple Cloud Foundry Providers - Part 
 layout: post
 ---
 <link rel='stylesheet' href='../css/markdown7.css'/>
-## Overview
+## Application Orchestration Across Multiple Cloud Foundry Providers - Part 1 
 
 [Cloud Foundry](http://www.cloudfoundry.org) is a PaaS stack that provides easy-to-use management tools across a number 
 of popular application frameworks like Node.js, PHP, Ruby on Rails and others. A number of Cloud Foundry providers now 
@@ -13,15 +13,15 @@ offer public cloud solutions. In this series, we will focus on [Pivotal Web Serv
 > **Big Idea** <br/>
 > This multi-part series describes how to orchestrate an application across more than one Cloud Foundry PaaS.   
 
-This will be accomplished in five parts:
+We'll break the work down into simpler sections:
 
-1. Deploying a RoR app on two clouds
-1. Describing the app with a TOSCA blueprint
-1. Creating a local workflow to scale up &amp; down
-1. Providing a Cloudify Manager plugin
-1. Collecting logs and metrics across providers
+1. <a href="l1>Deploying an application on two clouds</a>
+1. Describing with a TOSCA blueprint
+1. Creating a workflow to scale up &amp; down
+1. Writing a Cloudify Manager plugin
+1. Collecting logs and metrics
 
-## Deploying a RoR application on two clouds
+## Deploying a RoR application on two clouds<a name="l1"></a>
 
 ### The application
 
