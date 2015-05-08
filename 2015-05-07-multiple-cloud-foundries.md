@@ -25,25 +25,13 @@ This will be accomplished in five parts:
 
 ### The application
 
-We start by modifying a RoR sample app [that is set up for Cloud Foundry]
-(https://github.com/cloudfoundry-samples/rails_sample_app/blob/master/README.markdown). 
-For simplicity, we [use railtie](http://stackoverflow.com/questions/19078044/disable-activerecord-for-rails-4) for 
-ActiveRecord. Then we provide a [rake task]
-(https://github.com/GigaSpaces-POCs/cfy-pivotal/blob/f7c7f093088b4ab9e9c7b4e40d8163bd4af167db/cf-apps/simple-rails-app/lib/tasks/colorful.rake) 
-that takes a css color and styles our web pages. (More on this later.) The deployment-ready app is stored 
-[here as part of the blog1 tag](https://github.com/GigaSpaces-POCs/cfy-pivotal/tree/blog1/cf-apps/simple-rails-app).
+We start by modifying a RoR sample app [that is set up for Cloud Foundry](https://github.com/cloudfoundry-samples/rails_sample_app/blob/master/README.markdown). For simplicity, we [use railtie](http://stackoverflow.com/questions/19078044/disable-activerecord-for-rails-4) for ActiveRecord. Then we provide a [rake task](https://github.com/GigaSpaces-POCs/cfy-pivotal/blob/f7c7f093088b4ab9e9c7b4e40d8163bd4af167db/cf-apps/simple-rails-app/lib/tasks/colorful.rake) that takes a css color and styles our web pages. (More on this later.) The deployment-ready app is stored [here as part of the blog1 tag](https://github.com/GigaSpaces-POCs/cfy-pivotal/tree/blog1/cf-apps/simple-rails-app).
 
 ### Deployment
 
-After signing up for [Pivotal](https://console.run.pivotal.io/register) and [Anynines](http://www.anynines.com), we 
-install the excellent [Cloud Foundry CLI](http://docs.run.pivotal.io/devguide/installcf/). Both clouds run the same 
-version of Cloud Foundry, so the CLI can be used with either after a call to `cf login [api endpoint]`. This enables 
-some [convenient automation]
-(https://github.com/GigaSpaces-POCs/cfy-pivotal/commit/1d6aa17f7bf562fa87be835c678cae79f70c02f2).
+After signing up for [Pivotal](https://console.run.pivotal.io/register) and [Anynines](http://www.anynines.com), we install the excellent [Cloud Foundry CLI](http://docs.run.pivotal.io/devguide/installcf/). Both clouds run the same version of Cloud Foundry, so the CLI can be used with either after a call to `cf login [api endpoint]`. This enables some [convenient automation](https://github.com/GigaSpaces-POCs/cfy-pivotal/commit/1d6aa17f7bf562fa87be835c678cae79f70c02f2).
 
-The simplest way to deploy an app (after `cf login`), is to go to the root of the application directory and call 
-`cf push [application name]`. But by providing a file named manifest.yml, we can specify some useful options, including 
-a call to our rake command (so that we can color this application purple):
+The simplest way to deploy an app (after `cf login`), is to go to the root of the application directory and call `cf push [application name]`. But by providing a file named manifest.yml, we can specify some useful options, including a call to our rake command (so that we can color this application purple):
 
 ![manifest.yml options](images/manifest.png)
 
