@@ -25,7 +25,7 @@ We'll break the work down into smaller sections:
 
 Cloud foundry defines a strict hierarchy for organizing resources. At the top level is an [Org](http://docs.cloudfoundry.org/concepts/roles.html#orgs), which is the highest level of containment. Conceptually, it means &ldquo;organization&rdquo;. 
 
-The next level down is the [Space](http://docs.cloudfoundry.org/concepts/roles.html#spaces). A Space can organize around an IaaS datacenter, a region, or any other organizational principle - say, for example, a QA tier. Spaces belong to exactly one Org.
+The next level down is the [Space](http://docs.cloudfoundry.org/concepts/roles.html#spaces). A Space can contain a datacenter, a region, or any other organizational principle - say, for example, a QA tier. Spaces belong to exactly one Org.
  
 <img src="images/CloudFoundry3AppInstances.png" width="360px" alt="three App instances"/><br/>
 **Figure 1: App Instances Spread Across An Org**
@@ -34,20 +34,20 @@ Finally, we have Apps, which deploy to a Space. As such, they can belong to one 
 
 ## <a name="l1"></a>Moving an App between Spaces
 
-The simplest use case will be to deploy an app to one Space and then scale it to two App instances running in two Spaces belonging to the same Org.  
+The simplest use case will be to deploy an App to one Space and then scale it to two App instances running in two Spaces belonging to the same Org.  
 
 ![from one to two](images/CloudFoundryOneToTwoAppInstances.png)<br/>
 **Figure 2: Scaling App Instances**
 
-### The application
+### The App
 
-We start by modifying a Ruby on Rails application [that is set up for Cloud Foundry](https://github.com/cloudfoundry-samples/rails_sample_app/blob/master/README.markdown). For simplicity, we [use railtie](http://stackoverflow.com/questions/19078044/disable-activerecord-for-rails-4) for ActiveRecord. Then we provide a [rake task](https://github.com/GigaSpaces-POCs/cfy-pivotal/blob/f7c7f093088b4ab9e9c7b4e40d8163bd4af167db/cf-apps/simple-rails-app/lib/tasks/colorful.rake) that takes a css color and styles our web pages. (More on this later.) The deployment-ready app is stored [here as part of the blog1 tag](https://github.com/GigaSpaces-POCs/cfy-pivotal/tree/blog1/cf-apps/simple-rails-app).
+We start by modifying a Ruby on Rails App [that is set up for Cloud Foundry](https://github.com/cloudfoundry-samples/rails_sample_app/blob/master/README.markdown). For simplicity, we [use railtie](http://stackoverflow.com/questions/19078044/disable-activerecord-for-rails-4) for ActiveRecord. Then we provide a [rake task](https://github.com/GigaSpaces-POCs/cfy-pivotal/blob/f7c7f093088b4ab9e9c7b4e40d8163bd4af167db/cf-apps/simple-rails-app/lib/tasks/colorful.rake) that takes a css color and styles our web pages. (More on this later.) The deployment-ready App is stored [here as part of the blog1 tag](https://github.com/GigaSpaces-POCs/cfy-pivotal/tree/blog1/cf-apps/simple-rails-app).
 
 ### Deployment
 
 After signing up for [Pivotal](https://console.run.pivotal.io/register), we install the excellent [Cloud Foundry CLI tool](http://docs.run.pivotal.io/devguide/installcf/).
 
-The simplest way to deploy an app is to go to the root of the application directory and call `cf push [some application name]`. By providing a file named manifest.yml, we can specify even more behavior, including calls to post-push commands. To illustrate this behavior, we call our custom rake task (and color our app's front page purple):
+The simplest way to deploy an App is to go to the root directory and call `cf push [some App name]`. By providing a file named manifest.yml, we can specify even more behavior, including calls to post-push commands. To illustrate this behavior, we call our custom rake task (and color our App's front page purple):
 
 ![manifest.yml options](images/manifest.png)
 
