@@ -5,16 +5,13 @@ layout: post
 <link rel='stylesheet' href='../css/markdown7.css'/>
 ## Application Orchestration for Cloud Foundry : Part 1 
 
-[Cloud Foundry](http://www.cloudfoundry.org) is a PaaS stack that provides easy-to-use management tools across a number 
-of popular application frameworks like Node.js, PHP, Ruby on Rails and others. A number of Cloud Foundry providers now 
-offer public cloud solutions. In this series, we will focus on [Pivotal Web Services](http://run.pivotal.io) and 
-[Anynines](http://www.anynines.com).
+[Cloud Foundry](http://www.cloudfoundry.org) is a PaaS stack that provides easy-to-use management tools across popular application frameworks such as Node.js, PHP, Ruby on Rails and others. A number of Cloud Foundry providers now offer public cloud solutions. In this series, we will will use [Pivotal Web Services](http://run.pivotal.io). It should be noted that these techniques would work equally well with an in-house Cloud Foundry environment.
 
-> This multi-part series describes how to orchestrate an application across more than one Cloud Foundry PaaS provider.   
+> This multi-part series describes how to orchestrate an application for Cloud Foundry.   
 
 We'll break the work down into smaller sections:
 
-1. [Deploying an application on two clouds](#l1)
+1. [Application Orchestration For Cloud Foundry](#l1)
 1. [Describing with a TOSCA blueprint](2015-05-07-tosca-for-cloud-foundries.html)
 1. [Scaling with a local workflow](2015-05-07-workflow-for-cloud-foundries.html)
 1. [Managing with a Cloudify plugin]
@@ -28,9 +25,9 @@ We start by modifying a Ruby on Rails application [that is set up for Cloud Foun
 
 ### Deployment
 
-After signing up for [Pivotal](https://console.run.pivotal.io/register) and [Anynines](http://www.anynines.com), we install the excellent [Cloud Foundry CLI](http://docs.run.pivotal.io/devguide/installcf/). Both clouds run the same version of Cloud Foundry, so the CLI can be used with either after a call to `cf login [api endpoint]`. This enables some [convenient automation](https://github.com/GigaSpaces-POCs/cfy-pivotal/commit/1d6aa17f7bf562fa87be835c678cae79f70c02f2).
+After signing up for [Pivotal](https://console.run.pivotal.io/register), we install the excellent [Cloud Foundry CLI tool](http://docs.run.pivotal.io/devguide/installcf/). Both clouds run the same version of Cloud Foundry, so the CLI can be used with either after a call to `cf login [api endpoint]`. This enables some [convenient automation](https://github.com/GigaSpaces-POCs/cfy-pivotal/commit/1d6aa17f7bf562fa87be835c678cae79f70c02f2).
 
-The simplest way to deploy an app (after `cf login`), is to go to the root of the application directory and call `cf push [application name]`. But by providing a file named manifest.yml, we can specify some useful options, including a call to our rake command (so that we can color this application purple):
+The simplest way to deploy an app (after authenticating to the API endpoint), is to go to the root of the application directory and call `cf push [application name]`. But by providing a file named manifest.yml, we can specify some useful options, including a call to our rake command (so that we can color this application purple):
 
 ![manifest.yml options](images/manifest.png)
 

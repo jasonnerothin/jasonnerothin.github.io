@@ -9,7 +9,7 @@ layout: post
 
 To this point, we have only interacted with the running systems using the Cloud Foundry command line tool. But now that we have additional information in the form of a topology, it's useful to ask what additional options are opened up to us. To answer this question, we implement a local [workflow](http://getcloudify.org/guide/3.2/reference-terminology.html#workflow) to scale up and down.    
 
-1. [Deploying an application on two clouds](2015-05-07-multiple-cloud-foundries.html)
+1. [Application Orchestration For Cloud Foundry](2015-05-07-application-orchestration-for-cloud-foundry.html)
 1. [Describing with a TOSCA blueprint](2015-05-07-tosca-for-cloud-foundries.html)
 1. [Scaling with a local workflow](2015-05-07-workflow-for-cloud-foundries.html)
 1. Orchestrating with a Cloudify plugin

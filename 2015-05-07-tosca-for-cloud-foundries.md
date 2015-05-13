@@ -9,7 +9,7 @@ layout: post
 
 > In this section, we will focus on describing the application topology. Later, we will show how to leverage this topology to add orchestration and management behavior to our application. 
 
-1. [Deploying an application on two clouds](2015-05-07-multiple-cloud-foundries.html)
+1. [Application Orchestration For Cloud Foundry](2015-05-07-application-orchestration-for-cloud-foundry.html)
 1. [Describing with a TOSCA blueprint](#l1)
 1. [Scaling with a local workflow](2015-05-07-workflow-for-cloud-foundries.html)
 1. Orchestrating with a Cloudify plugin
