@@ -5,9 +5,11 @@ layout: post
 <link rel='stylesheet' href='../css/markdown7.css'/>
 ## Application Orchestration for Cloud Foundry : Part 1 
 
-[Cloud Foundry](http://www.cloudfoundry.org) is a PaaS stack that provides easy-to-use management tools across popular application frameworks such as Node.js, PHP, Ruby on Rails and others. A number of Cloud Foundry providers now offer public cloud solutions. In this series, we will will use [Pivotal Web Services](http://run.pivotal.io). It should be noted that these techniques would work equally well with an in-house Cloud Foundry environment.
+[Cloud Foundry](http://www.cloudfoundry.org) is a PaaS stack that provides easy-to-use management tools across popular application frameworks such as Node.js, PHP, Ruby on Rails and others. A number of Cloud Foundry providers now offer public cloud solutions. In this series, we will will use [Pivotal Web Services](http://run.pivotal.io) as our example provider. 
 
-> This multi-part series describes how to orchestrate an application for Cloud Foundry.   
+It should be noted that these techniques would work equally well with an in-house Cloud Foundry environment.
+
+> This multi-part series describes how to implement application orchestration for Cloud Foundry.   
 
 We'll break the work down into smaller sections:
 
