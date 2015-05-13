@@ -36,7 +36,7 @@ Finally, we have Apps, which deploy to a Space. As such, they can belong to one 
 
 The simplest use case will be to deploy an app to one Space and then scale it to two App instances running in two Spaces belonging to the same Org.  
 
-![from one to two](images/CloudFoundryOneToTwoAppInstances.png)
+![from one to two](images/CloudFoundryOneToTwoAppInstances.png)<br/>
 **Figure 2: Scaling App Instances**
 
 ### The application
@@ -45,17 +45,17 @@ We start by modifying a Ruby on Rails application [that is set up for Cloud Foun
 
 ### Deployment
 
-After signing up for [Pivotal](https://console.run.pivotal.io/register), we install the excellent [Cloud Foundry CLI tool](http://docs.run.pivotal.io/devguide/installcf/). Both clouds run the same version of Cloud Foundry, so the CLI can be used with either after a call to `cf login [api endpoint]`. This enables some [convenient automation](https://github.com/GigaSpaces-POCs/cfy-pivotal/commit/1d6aa17f7bf562fa87be835c678cae79f70c02f2).
+After signing up for [Pivotal](https://console.run.pivotal.io/register), we install the excellent [Cloud Foundry CLI tool](http://docs.run.pivotal.io/devguide/installcf/).
 
-The simplest way to deploy an app (after authenticating to the API endpoint), is to go to the root of the application directory and call `cf push [application name]`. But by providing a file named manifest.yml, we can specify some useful options, including a call to our rake command (so that we can color this application purple):
+The simplest way to deploy an app is to go to the root of the application directory and call `cf push [some application name]`. By providing a file named manifest.yml, we can specify even more behavior, including calls to post-push commands. To illustrate this behavior, we call our custom rake task (and color our app's front page purple):
 
 ![manifest.yml options](images/manifest.png)
 
-Running the same `cf push` command goes like this:
+`cf push` output looks like this:
 
 ![pushing](images/push1.png)
 
-Some build stuff&hellip;
+&hellip;some build output&hellip;
 
 ![finishing up](images/push2.png)
 
@@ -65,12 +65,6 @@ As we'd expect, the deployment shows up:
 
 ### Result
 
-As you can see, the app is deployed across multiple providers:
-
 ![Many providers](images/many.png)
 
-### Load-balancing
-
-We will load-balance using HAProxy in step 4 of this series.
-  
 [Next >](2015-05-07-tosca-for-cloud-foundries.html) 
