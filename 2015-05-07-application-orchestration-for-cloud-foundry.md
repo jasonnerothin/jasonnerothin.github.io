@@ -17,7 +17,17 @@ We'll break the work down into smaller sections:
 1. [Managing with a Cloudify plugin]
 1. [Collecting logs and metrics]
 
-## <a name="l1"></a>Deploying an application across two clouds
+## Cloud Foundry Topology 
+
+Cloud foundry defines a strict hierarchy for organizing IaaS resources. At the top level is an [Org](http://docs.cloudfoundry.org/concepts/roles.html#orgs), which is the highest level of resource containment. Conceptually, it means &rdquo;organization&ldquo;. 
+
+The next level down is the [Space](http://docs.cloudfoundry.org/concepts/roles.html#spaces). A Space can organize around an IaaS datacenter, a region, or any other organizational principle - say, for example, a QA tier. Spaces belong to exactly one Org.
+
+Finally, we have Apps, which deploy to a Space. As such, they can belong to one or more Space and even belong to a given Space multiple times. See Figure 1 for such an example:
+ 
+![three App instances](images/CloudFoundry3AppInstances.png) 
+
+## <a name="l1"></a>Moving an App between Spaces
 
 ### The application
 
