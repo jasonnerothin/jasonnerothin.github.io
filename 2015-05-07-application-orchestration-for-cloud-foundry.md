@@ -80,4 +80,8 @@ Finally, we execute `cf push` another time.
 
 ![Many providers](images/many.png)
 
+## Load-balancing
+
+We will load-balance using HAProxy in step 4 of this series.
+
 [Next >](2015-05-07-tosca-for-cloud-foundries.html) 
