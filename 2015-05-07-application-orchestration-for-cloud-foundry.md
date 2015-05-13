@@ -59,9 +59,22 @@ The simplest way to deploy an App is to go to the root directory and call `cf pu
 
 ![finishing up](images/push2.png)
 
-As we'd expect, the deployment shows up:
+As we'd expect, the deployment shows up in the Pivotal control panel:
 
 ![Pivotal Control Panel](images/pivcp.png)
+
+### Scaling to Two Spaces from One
+
+At this point, we have what is on the left-hand side of Figure 2. In three quick steps, we can deploy another instance.
+
+First, we change the target space to point to Space B:
+
+![changing target space](images/cftarget.png)<br/>
+**Figure 3: Changing Target Space with cf t**
+
+Then, we make two quick changes to manifest.yml: We change the application name to &rdquo;getcloudify2&ldquo; and change the color from purple to red.
+ 
+Finally, we execute `cf push` another time.
 
 ### Result
 
