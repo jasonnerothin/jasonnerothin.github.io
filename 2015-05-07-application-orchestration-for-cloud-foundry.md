@@ -23,7 +23,7 @@ We'll break the work down into smaller sections:
 
 ## Cloud Foundry Topology 
 
-Cloud foundry defines a strict hierarchy for organizing resources. At the top level is an [Org](http://docs.cloudfoundry.org/concepts/roles.html#orgs), which is the highest level of containment. Conceptually, it means &ldquo;organization&rdquo;. 
+Cloud Foundry defines a strict hierarchy for organizing resources. At the top level is an [Org](http://docs.cloudfoundry.org/concepts/roles.html#orgs), which is the highest level of containment. Conceptually, it means &ldquo;organization&rdquo;. 
 
 The next level down is the [Space](http://docs.cloudfoundry.org/concepts/roles.html#spaces). A Space can contain a datacenter, a region, or any other organizational principle - say, for example, a QA tier. Spaces belong to exactly one Org.
  
