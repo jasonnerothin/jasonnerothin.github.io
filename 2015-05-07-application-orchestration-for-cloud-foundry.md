@@ -27,7 +27,7 @@ Cloud foundry defines a strict hierarchy for organizing resources. At the top le
 
 The next level down is the [Space](http://docs.cloudfoundry.org/concepts/roles.html#spaces). A Space can organize around an IaaS datacenter, a region, or any other organizational principle - say, for example, a QA tier. Spaces belong to exactly one Org.
  
-<img src="images/CloudFoundry3AppInstances.png" width="300px" alt="three App instances"/><br/>
+<img src="images/CloudFoundry3AppInstances.png" width="380px" alt="three App instances"/><br/>
 **Figure 1: App Instances Spread Across An Org**
 
 Finally, we have Apps, which deploy to a Space. As such, they can belong to one or more Space and even belong to a given Space more than once.
