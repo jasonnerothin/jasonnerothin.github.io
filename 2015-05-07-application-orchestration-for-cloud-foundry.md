@@ -7,7 +7,9 @@ layout: post
 
 [Cloud Foundry](http://www.cloudfoundry.org) is a PaaS stack that provides easy-to-use management tools across popular application frameworks such as Node.js, PHP, Ruby on Rails and others. A number of Cloud Foundry providers now offer public cloud solutions. In this series, we will will use [Pivotal Web Services](http://run.pivotal.io) as our example provider. 
 
-> This multi-part series describes how to implement application orchestration for Cloud Foundry.   
+> This multi-part series describes how to implement application orchestration for Cloud Foundry. 
+  
+In this series of posts, we will demonstrate full application orchestration for Cloud Foundry, including deployment automation, scaling, monitoring and auto-recovery.
 
 It should be noted that these techniques would work equally well with an in-house Cloud Foundry environment.
 
@@ -21,15 +23,21 @@ We'll break the work down into smaller sections:
 
 ## Cloud Foundry Topology 
 
-Cloud foundry defines a strict hierarchy for organizing IaaS resources. At the top level is an [Org](http://docs.cloudfoundry.org/concepts/roles.html#orgs), which is the highest level of resource containment. Conceptually, it means &rdquo;organization&ldquo;. 
+Cloud foundry defines a strict hierarchy for organizing resources. At the top level is an [Org](http://docs.cloudfoundry.org/concepts/roles.html#orgs), which is the highest level of containment. Conceptually, it means &ldquo;organization&rdquo;. 
 
 The next level down is the [Space](http://docs.cloudfoundry.org/concepts/roles.html#spaces). A Space can organize around an IaaS datacenter, a region, or any other organizational principle - say, for example, a QA tier. Spaces belong to exactly one Org.
-
-Finally, we have Apps, which deploy to a Space. As such, they can belong to one or more Space and even belong to a given Space multiple times. See Figure 1 for such an example:
  
-![three App instances](images/CloudFoundry3AppInstances.png) 
+![three App instances](images/CloudFoundry3AppInstances.png)
+**Figure 1: App Instances Spread Across An Org**
+
+Finally, we have Apps, which deploy to a Space. As such, they can belong to one or more Space and even belong to a given Space more than once.
 
 ## <a name="l1"></a>Moving an App between Spaces
+
+The simplest use case will be to deploy an app to one Space and then scale it to two App instances running in two Spaces belonging to the same Org.  
+
+![from one to two](images/CloudFoundryOneToTwoAppInstances.png)
+**Figure 2: Scaling App Instances**
 
 ### The application
 
